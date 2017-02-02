@@ -1,0 +1,12 @@
+<%# For cart to work right, add jQuery lines %>
+<%# Leave out jQuery UI effects - they do not add to usability %>
+
+$('#notice').hide();
+
+if ($('#cart tr').length == 1) { $('#cart').show(); }  <%# 'fade', 1000); } %>
+
+$('#cart').html("<%= escape_javascript render(@cart) %>");
+
+$('#current_item').css({'background-color':'#A9A9A9'});
+<%# .animate({'background-color':'#D3D3D3'}, 1000); %>
+

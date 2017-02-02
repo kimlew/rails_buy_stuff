@@ -1,0 +1,18 @@
+<%# OrderNotifier#shipped %>
+
+<h3>Buy Stuff Order Has Been Shipped!</h3>
+<p>
+  <%= @greeting %> Hello <%= @order.name %>,
+</p>
+
+<p>
+  This is to let you know that we've shipped your recent order:
+</p>
+
+<table>
+  <tr>
+    <th colspan="2">Qty</th>
+    <th>Description</th>
+  </tr>
+  <%= render @order.line_items -%>
+</table>

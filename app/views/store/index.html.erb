@@ -1,0 +1,25 @@
+<% if notice %>
+  <p id="notice"><%= notice %></p> 
+<% end %> 
+
+<h1>Buy Stuff Catalog</h1>
+
+<% cache ['store', Product.latest] do %>
+  <% @products.each do |product| %> 
+    <% cache ['entry', product] do %>
+    
+      <div class="entry">
+        <%= image_tag(product.img_sml_loc) %> 
+        <h3><%= product.title %></h3> 
+        <p><%= sanitize(product.materials) %></p>
+    
+        <div class="price_line">  
+          <span class="price"><%= number_to_currency(product.price) %></span> 
+          <%= button_to 'Add to Cart', line_items_path(product_id: product),
+            remote: true %>       
+        </div>
+      </div><%# End tag for div class="entry" %>
+    
+    <% end %><%# End for: cache ['entry', product] do %>
+  <% end %><%# End for:  @products.each do |product| %>
+<% end %><%# End for: cache ['entry', product] do %>

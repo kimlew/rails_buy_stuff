@@ -1,0 +1,22 @@
+<%# OrderNotifier#received %>
+
+<h3>Buy Stuff Order Has Been Received</h3>
+<p>
+  <%= @greeting %> <%= @order.name %>,
+</p>
+
+<p>
+  Thank you for your recent order from Buy Stuff. You ordered:
+</p>
+
+<table>
+  <tr>
+    <th colspan="2">Qty</th>
+    <th>Description</th>
+  </tr>
+  <%= render @order.line_items -%>
+</table>
+
+<p>
+  You will receive a separate e-mail when your order has shipped.
+</p>

@@ -1,0 +1,8 @@
+<%# OrderNotifier#shipped %>
+
+<%= @greeting %>
+
+Hello <%= @order.name %>,
+
+This is to let you know that we've shipped your recent order:
+<%= render @order.line_items -%>

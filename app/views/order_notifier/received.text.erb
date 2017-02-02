@@ -1,0 +1,8 @@
+<%# OrderNotifier#received %>
+
+<%= @greeting %> <%= @order.name %>, 
+
+Thank you for your recent order from Buy Stuff. You ordered:
+<%= render @order.line_items -%>
+
+You will receive a separate e-mail when your order has shipped.

@@ -1,0 +1,23 @@
+// Place all the styles related to the Carts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.carts, #side #cart {
+  .item_price, .total_line {
+    text-align: right;
+    font-size: 110%;
+    padding-top: 5px;
+  }
+
+  .total_line .total_cell {
+    color: #FF8C00; /* orange */
+    font-size: 120%;
+    font-weight: bold;
+    
+    padding-top: 5px;
+    padding-bottom: 5px;
+    
+    border-top: 1px dotted #ffe595; /* medium yellow */
+    border-bottom: 1px dotted #ffe595; /* medium yellow */
+  }
+}

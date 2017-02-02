@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#notice {
+  color: #000000 !important;  /* black */
+  border: 2px solid red;
+  padding: 1em;
+  margin-bottom: 2em;
+  background-color: #f0f0f0; /* light grey-Gray94 */
+  font: bold smaller sans-serif;
+}
+
+#banner {
+  background: #99CC99;  /* medium green - wasabi? */
+  height: 50px;
+  padding: 10px;
+  /* border-bottom: 2px solid; */
+  font: small-caps 40px/40px sans-serif;
+  color: #282a2b; /* dark grey */
+  text-align: center;
+
+  img {
+    float: left;
+  }
+} /* End of #banner */
+
+/* #columns - contains #main and #side 
+   #side - contains cart, date and time, list with links */
+#columns {
+  background: #8D8D8D; /* medium grey */
+
+  #main {
+    float: left;
+    padding: 1em;
+    background: #ffffff; /* white */
+    width: 65%;
+  } /* End of: #main */
+
+  #side {
+    float: right;
+    padding: 1em 2em;
+    width: 25%;
+    min-height: 100%;
+    background: #666666; /* medium dark grey */
+    
+    form, div {
+      display: inline;
+    }
+ 
+    input {
+      font-size: medium;
+    }
+ 
+    #cart {
+      font-size: 90%;
+      color: white; /* white */
+ 
+      table {
+        margin-bottom: 10px;
+        
+        // To remove spacing between cells in highlighted line_item.
+        border-spacing: 0px;
+      }
+    } /* End of: #cart (within #side) */
+    
+    #datetime {
+      display: block; /* So places on line after Empty Cart button */
+      color: #eeeeee; /* light grey */
+      padding-top: 10px;
+    } 
+    
+    /* Text links in sidebar */ 
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+        a {
+          color: #bbffbb; /* light green - mint? */
+          font-size: small;
+        }
+      } /* End of: li */
+    } /* End of: ul */
+    
+   } /* End of: #side */
+   
+} /* End of: #columns */
+
+
+.buy_stuff_form {
+  fieldset {
+    background: #eeffee; /* very light grey */
+    
+    legend {
+      color: #ddffdd; /* very light green */
+      background: #8D8D8D; /* medium grey */
+      font-family: sans-serif;
+      padding: 0.2em 1em;
+    }
+  } /* End of: fieldset */
+  
+  form {
+    label {
+      width: 5em;
+      float: left;
+      text-align: right;
+      padding-top: 0.2em;
+      margin-right: 0.1em;
+      display: block;
+    }
+    
+    select, textarea, input {
+      margin-left: 0.5em;
+    }
+    
+    .submit {
+      margin-left: 4em;
+    }
+  
+    br {
+      display: none
+    }
+  } /* End of: form */
+  
+} /* End of: .buy_stuff_form */
+
+
+ 
