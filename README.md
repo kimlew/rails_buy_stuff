@@ -1,8 +1,8 @@
 <!-- BUY Stuff README -->
 
 This Rails project:
-- has Rails scaffolding and standard CRUD actions
-- includes: products, orders, line items, users, store, cart, log in, log out, 
+- has Rails scaffolding, standard CRUD actions and shopping cart.
+- includes: products, orders, line items, users, store, log in, log out, 
 forms, sessions, admin, unit tests, integration tests, order notifications, etc.
 
 This project used these versions:
