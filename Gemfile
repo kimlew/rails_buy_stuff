@@ -55,3 +55,6 @@ group :production do
 end
 
 gem 'rb-readline'
+
+# Specify Ruby version-Rails 4 needs 1.9.3+. Heroku has recent version. 
+ruby "2.3.0"
