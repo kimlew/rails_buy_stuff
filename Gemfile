@@ -48,4 +48,10 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  # Enables features like static asset serving, i.e., images and 
+  # logging onto Heroku
+  gem 'rails_12factor'
+end
+
 gem 'rb-readline'
