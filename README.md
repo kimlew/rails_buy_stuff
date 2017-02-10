@@ -1,7 +1,7 @@
-<!-- BUY Stuff README -->
+# BUY Stuff README
 
 This Rails project:
-- has Rails scaffolding, standard CRUD actions and shopping cart (without purchasing part)
+- has scaffolding, standard CRUD actions and shopping cart (without purchasing part)
 - includes: products, orders, line items, users, store, log in, log out, 
 forms, sessions, admin, unit tests, integration tests, order notifications, etc.
 - has a deployed version at: https://rails-buy-stuff.herokuapp.com/
