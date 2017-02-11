@@ -31,7 +31,8 @@
        <% end %>
 
       <div id=datetime>
-        <%= Time.now.strftime("%B %d, %Y - %I:%M %p") %>
+        <%= Time.now.strftime("%B %d, %Y - %I:%M %p %Z") %>
+        <%# %Z is the same as Time.zone.name %>
       </div>
     
       <ul>
