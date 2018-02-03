@@ -49,7 +49,7 @@ group :production do
   # Enables features like static asset serving, i.e., images and
   # logging onto Heroku
   # Use pg gem for Deployment on Heroku
-  gem 'pg'
+  gem 'pg', '0.21.0'
   gem 'rails_12factor'
 end
 
