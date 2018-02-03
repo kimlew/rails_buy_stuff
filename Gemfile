@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.6'
+gem 'rails', '4.2.7.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
@@ -46,7 +46,7 @@ group :development do
 end
 
 group :production do
-  # Enables features like static asset serving, i.e., images and 
+  # Enables features like static asset serving, i.e., images and
   # logging onto Heroku
   # Use pg gem for Deployment on Heroku
   gem 'pg'
@@ -55,5 +55,5 @@ end
 
 gem 'rb-readline'
 
-# Specify Ruby version-Rails 4 needs 1.9.3+. Heroku has recent version. 
+# Specify Ruby version-Rails 4 needs 1.9.3+. Heroku has recent version.
 ruby "2.3.0"
