@@ -9,6 +9,13 @@ gem 'rails', '4.2.11.1'
 #gem 'sqlite3'
 
 gem "nokogiri", ">= 1.10.4"
+# General library for manipulating & transforming HTML/XML documents &
+# fragments, built on top of Nokogiri.
+gem "loofah", ">= 2.3.1"
+
+# Tool for running Rack applications, uses the Rack::Builder DSL to configure
+# middleware & build up applications easily.
+gem "rack", ">= 1.6.12"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
