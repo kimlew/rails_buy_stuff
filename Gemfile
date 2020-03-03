@@ -8,7 +8,7 @@ gem 'rails', '4.2.11.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 
-gem "nokogiri", ">= 1.10.4"
+gem "nokogiri", ">= 1.10.8"
 # General library for manipulating & transforming HTML/XML documents &
 # fragments, built on top of Nokogiri.
 gem "loofah", ">= 2.3.1"
