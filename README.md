@@ -12,15 +12,16 @@ This project used these versions:
 - ruby 2.3.0p0 (2015-12-25 revision 53290) [x86_64-darwin15]
 - SQLite whatever version is bundled with Rails
 
-- Make sure you install these versions or newer ones to run the project properly.
+1. Make sure you install the versions above, or newer ones, to run the project properly.
 
-- <https://www.ruby-lang.org/en/downloads/>
+  - <https://www.ruby-lang.org/en/downloads/>
 
-- <https://www.ruby-lang.org/en/documentation/installation/>
-- <https://rubygems.org/gems/rails/versions/4.2.6>
+  - <https://www.ruby-lang.org/en/documentation/installation/>
 
-- Clone the files and folders in this repo.
+  - <https://rubygems.org/gems/rails/versions/4.2.6>
 
-- In the Terminal, start the rails server with the command: `rails server`
+2. Clone the files and folders in this repo.
 
-- In the browser, go to: <http://localhost:3000/>
+3. In the Terminal, start the rails server with the command: `rails server`
+
+4. In the browser, go to: <http://localhost:3000/>
