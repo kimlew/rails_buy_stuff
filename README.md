@@ -12,6 +12,8 @@ Versions used:
 - Ruby 2.6.1 or higher
 - SQLite - whatever version is bundled with Rails
 
+## To run the app:
+
 1. Make sure you install the versions above to run the project properly. See:
 
   - <https://www.ruby-lang.org/en/downloads/>
