@@ -7,7 +7,7 @@ ruby "~> 2.6.1"
 gem 'rails', '5.2.4.3'
 
 # Use Postgres for database
-gem 'pg', '0.21.0'
+gem 'pg', '1.2.3'
 
 gem "nokogiri", ">= 1.10.8"
 # General library for manipulating & transforming HTML/XML documents &
@@ -49,7 +49,7 @@ end
 group :production do
   # Enables features like static asset serving, i.e., images & logging onto Heroku
   # Use pg gem for Deployment on Heroku
-  gem 'pg', '0.21.0'
+  gem 'pg', '1.2.3'
   gem 'rails_12factor'
 end
 
