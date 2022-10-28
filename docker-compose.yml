@@ -3,7 +3,7 @@ version: "3.9"
 services:
   db:
     image: "mysql:latest"
-    # Default authentication plugin is caching_sha2_password, but for some  
+    # Default authentication plugin is caching_sha2_password, but for some
     # reason, the mysql2 gem doesn't work with it. Add this command:
     command: --default-authentication-plugin=mysql_native_password
     # Suppress some useless error messages with cap_add set to SYS_NICE.
@@ -34,9 +34,9 @@ services:
       #- ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
       #- ./sqlserver:/docker-entrypoint-initdb.d
 
-  task_manager:
+  buy_stuff:
     build: .
-    image: "rails7_todo_container"
+    image: "rails_buy_stuff_container"
     #command: bundle exec rails s -p 3000 -b '0.0.0.0'
     depends_on:
       - db
@@ -48,7 +48,7 @@ services:
       - MYSQL_HOST=db
       - MYSQL_ROOT_USER="${MYSQL_ROOT_USER}"
       - MYSQL_ROOT_PASSWORD="${MYSQL_ROOT_PASSWORD}"
-  
+
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
       # - MYSQL_DATABASE=${MYSQL_DATABASE}
@@ -57,18 +57,18 @@ services:
       - "${PORT_ASSIGNED_ON_HOST_FOR_WEB_APP}:${PORT_RAILS_WEB_SERVER_DEFAULT}"
     # volumes:
       #- ./:/src # Directory on production machine where app is normally copied to.
-      #- /rails7_task_manager # The web app directory. KIM doesn't need since she COPY.
+      #- /rails_buy_stuff # The web app directory. KIM doesn't need since she COPY.
     links:
       - db
 
-# Top-level volumes specifies/defines which volume driver should be used for 
+# Top-level volumes specifies/defines which volume driver should be used for
 # this volume. Defaults to whatever driver the Docker Engine has been configured
-# to use, which in most cases is local. When Docker creates volumes, the 
-# contents of the volume are stored in a part of the host filesystem, 
+# to use, which in most cases is local. When Docker creates volumes, the
+# contents of the volume are stored in a part of the host filesystem,
 # /var/lib/docker/volumes/, that is managed by Docker. The contents of each 
-# volume are stored in a directory under /var/lib/docker/volumes/ & are mounted 
+# volume are stored in a directory under /var/lib/docker/volumes/ & are mounted
 # to any container that uses the volume. This way, the data users create
 # persists in the db volume even if we remove & recreate the database service.
 volumes:
   db:
-    driver: local  
+    driver: local
