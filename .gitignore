@@ -4,6 +4,8 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+.env
+
 # Ignore bundler config.
 /.bundle
 
@@ -15,8 +17,24 @@
 /log/*
 !/log/.keep
 /tmp
+/db
 
 vendor/cache/*
+
+config.ru
+lib/
+bin/
+Rakefile
+
+# Ignore these files in development
+/storage
+/public
+/test
+
+junk
+Dockerfile.rails
+*_results.txt
+.vscode/
 
 # Ignore the .DS_Store file
 .DS_Store
