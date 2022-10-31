@@ -24,27 +24,14 @@ RUN bundle install
 # is just informative. EXPOSE no longer has any operational impact.
 # EXPOSE 3000
 
-# An entrypoint script is executed every time the container starts. This lets us
-# run the container as an executable.
-# COPY entrypoint.sh /usr/bin/
-# RUN chmod +x /usr/bin/entrypoint.sh
-# ENTRYPOINT ["entrypoint.sh"]
+# TEST if configuration is right. Start app with:
+# CMD ["rails", "server", "-b", "0.0.0.0"]
+# See if app runs in browser at: http://localhost:3000/
+# Note: The rails server -b parameter with - has rails bind to all IPs & listen
+# to requests from outside the container. Binding the server to 0.0.0.0 lets
+# you view the app with your server's public IP address.
 
-# TEST if configuration is right. Start rails app & see if app runs in browser.
-# From the application's directory, use command: bin/rails s --binding=0.0.0.0
-# Binding the server to 0.0.0.0 - lets you view the app w your server's public
-# IP address. View in browser at: http://localhost:3000/
-
-# Start/Run the main process, i.e., configure main process to run when running
-# the image. Note: Use the rails server -b parameter - to have rails bind to all
-# IPs & listen to requests from outside the container. Refer to:
-# https://stackoverflow.com/questions/61164093/docker-compose-rails-app-not-accessible-on-port-3000#61164280
-
-# B4: CMD ["rails", "server", "-b", "0.0.0.0"] # Took out: rake db:drop
-# TODO: Put commands in in shell script & run script so shorter line, e.g., launch.sh
-# COPY startup.sh .
-# CMD ["/bin/bash","-c","./startup.sh"]
-#CMD ["/bin/bash", "-c", "rails db:create && rails db:migrate && rails db:seed && rails db:schema:load && rails db:load && rails server -b 0.0.0.0"]
-#CMD ["rails", "server", "-b", "0.0.0.0"]
-CMD [ "/bin/bash", "-c", "rails db:migrate RAILS_ENV=development && rails db:seed && rails server -b 0.0.0.0" ]
+# Start/Run the main process.
+RUN chmod +x launch_app.sh
+CMD [ "/bin/bash", "-c", "bash launch_app.sh" ]
 # View in browser at: http://localhost:48019/
