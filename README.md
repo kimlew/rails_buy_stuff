@@ -1,29 +1,24 @@
 # BUY Stuff README
 
+This uses a Docker image with MySQL with docker-compose.yml & migrates a previous Rails project that used Ruby 2.6.1, Rails 5.2.4.3 and PostgreSQL, to these versions and their dependencies:
+
+- Docker 3.9
+- Rails 7.0
+- Ruby 3.1.2
+- MySQL
+- Puma 5.6
+
 This Rails project:
 
 - has scaffolding, standard CRUD actions and shopping cart (without purchasing part)
 - includes: products, orders, line items, users, store, log in, log out, forms, sessions, admin, unit tests, integration tests, order notifications, etc.
-- has a deployed version at: <https://rails-buy-stuff.herokuapp.com/>
 
-Versions used:
+## To run the application:
 
-- Rails 5.2.4.3
-- Ruby 2.6.1 or higher
-- SQLite - whatever version is bundled with Rails
+1. Run: `git clone git@github.com:kimlew/rails_buy_stuff.git`
 
-## To run the app:
+2. Change to project directory with: `cd rails_buy_stuff`
 
-1. Make sure you install the versions above to run the project properly. See:
+3. Run: `docker compose up --build`
 
-  - <https://www.ruby-lang.org/en/downloads/>
-
-  - <https://www.ruby-lang.org/en/documentation/installation/>
-
-  - <https://rubygems.org/gems/rails/versions/5.2.4.3>
-
-2. Clone the files and folders in this repo.
-
-3. In the Terminal, start the rails server with the command: `rails server`
-
-4. Go to browser address: <http://localhost:3000/>
+4. Go to browser address: <http://localhost:48019/>
