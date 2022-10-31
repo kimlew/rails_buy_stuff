@@ -5,14 +5,15 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: mysql2 # postgresql
-  encoding: utf8 # unicode
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %> # 5
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
 
+  # You need host & port OR socket. socket: <%= ENV['SOCKET'] %>
   host: db
   port: <%= ENV['PORT_MYSQL'] %>
-  # You need host & port OR socket. socket: <%= ENV['SOCKET'] %>
+
   database: <%= ENV['[MYSQL_DATABASE'] %>
   # username: <%= ENV['MYSQL_ROOT_USER'] %>
   # password: <%= ENV['MYSQL_ROOT_PASSWORD'] %>
@@ -34,5 +35,5 @@ production:
   <<: *default
   #url: <%= ENV['DATABASE_URL'] %>
   database: rails_buy_stuff_production
-  username: rails7_buy_stuff
+  username: rails_buy_stuff
   password: <%= ENV['RAILS_BUY_STUFF_DATABASE_PASSWORD'] %>
