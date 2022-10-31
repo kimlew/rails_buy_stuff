@@ -1,4 +1,4 @@
-class CombineItemsInCart < ActiveRecord::Migration[5.2]
+class CombineItemsInCart < ActiveRecord::Migration[7.0]
   def up
     # Replace multiple items for a single product in a cart with a single item
 
