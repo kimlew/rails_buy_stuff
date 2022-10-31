@@ -7,10 +7,9 @@ gem "json", ">= 2.3.0"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 #gem 'rails', '5.2.4.6'
-gem 'rails', '~>7.0'
+gem 'rails', '~> 7.0', '>= 7.0.4'
 
-# Use Postgres for database
-#gem 'pg', '1.2.3'
+# For Postgres database for Heroku Deployment: gem 'pg', '1.2.3'
 gem 'mysql2', '>= 0.5', '< 0.5.4'
 
 # Use Puma as the app server
@@ -60,8 +59,7 @@ end
 
 group :production do
   # Enables features like static asset serving, i.e., images & logging onto Heroku
-  # Use pg gem for Deployment on Heroku
-  gem 'pg', '1.2.3'
+  # For Postgres database for Heroku Deployment: gem 'pg', '1.2.3'
   gem 'rails_12factor'
 end
 
