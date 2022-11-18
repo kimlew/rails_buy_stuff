@@ -18,7 +18,21 @@ This Rails project:
 1. Run: `git clone git@github.com:kimlew/rails_buy_stuff.git`
 
 2. Change to project directory with: `cd rails_buy_stuff`
+   
+3. Create an .env file with environment variables like these. Assign values to the MySQL root user and the MySQL user along with passwords, which should should not be shown to any one:
 
-3. Run: `docker compose up --build`
+  ```
+    MYSQL_ROOT_USER=root
+    MYSQL_ROOT_PASSWORD=therootuserpassword
+    MYSQL_USER=yourmysqluser
+    MYSQL_PASSWORD=yourmysqluserpassword
+    MYSQL_DATABASE=rails_buy_stuff_development
+    PORT_ASSIGNED_ON_HOST_FOR_DB=48018
+    PORT_ASSIGNED_ON_HOST_FOR_WEB_APP=48019
+    PORT_RAILS_WEB_SERVER_DEFAULT=3000
+    PORT_MYSQL_SERVER_DEFAULT=3306
+  ```
 
-4. Go to browser address: <http://localhost:48019/>
+4. Run: `docker compose up --build`
+
+5. Go to browser address: <http://localhost:48019/>
