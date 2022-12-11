@@ -1,4 +1,4 @@
-class CreateLineItems < ActiveRecord::Migration[5.2]
+class CreateLineItems < ActiveRecord::Migration[7.0]
   def change
     create_table :line_items do |t|
       t.references :product, index: true, foreign_key: true

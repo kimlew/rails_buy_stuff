@@ -1,0 +1,69 @@
+version: "3.9"
+
+services:
+  db:
+    image: "mysql:latest"
+    # Default authentication plugin is caching_sha2_password, but for some
+    # reason, the mysql2 gem doesn't work with it. Add this command:
+    command: --default-authentication-plugin=mysql_native_password
+    # Suppress some useless error messages with cap_add set to SYS_NICE.
+    cap_add:
+      - SYS_NICE
+    # Make docker-compose always restart this container, even if it fails.
+    restart: always
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_USER=${MYSQL_ROOT_USER}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      #- MYSQL_DATABASE=${MYSQL_DATABASE}
+    expose:
+      # Expose/Open default MySQL port on MySQL container, e.g., - 3306
+      - "${PORT_MYSQL_SERVER_DEFAULT}"
+    ports:
+      # Map/Forward from Mac to MySQL, e.g., - "${ASSIGNED_PORT}:3306" # e.g., ASSIGNED_PORT=8000
+      # <Exposed/Opened port on Mac host>:<MySQL container's port>, e.g., - 3000:3000
+      - "${PORT_ASSIGNED_ON_HOST_FOR_DB}:${PORT_MYSQL_SERVER_DEFAULT}"
+    # Adds the db volume, mapped to the below volumes db which tells Docker &
+    # script to initialize our database with a given SQL file.
+    # volumes:
+    #   - db:/var/lib/mysql # Where data is persisted. Store configuration in /var/lib/mysql.
+      #- ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      #- ./sqlserver:/docker-entrypoint-initdb.d
+
+  buy_stuff:
+    build: .
+    image: "rails_buy_stuff_container"
+    depends_on:
+      - db
+    restart: always
+    env_file:
+      - .env
+    environment:
+      # - MYSQLCONNECTOR_SOMETHING=mysql://db:5432
+      - MYSQL_HOST=db
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      # - MYSQL_DATABASE=${MYSQL_DATABASE}
+    ports:
+      # Format: "${HOST}:"${CONTAINER}
+      - "${PORT_ASSIGNED_ON_HOST_FOR_WEB_APP}:${PORT_RAILS_WEB_SERVER_DEFAULT}"
+    # volumes:
+      #- ./:/src # Directory on production machine where app is normally copied to.
+      #- /rails_buy_stuff # The web app directory. KIM doesn't need since she COPY.
+    links:
+      - db
+
+# Top-level volumes specifies/defines which volume driver should be used for
+# this volume. Defaults to whatever driver the Docker Engine has been configured
+# to use, which in most cases is local. When Docker creates volumes, the
+# contents of the volume are stored in a part of the host filesystem,
+# /var/lib/docker/volumes/, that is managed by Docker. The contents of each
+# volume are stored in a directory under /var/lib/docker/volumes/ & are mounted
+# to any container that uses the volume. This way, the data users create
+# persists in the db volume even if we remove & recreate the database service.
+volumes:
+  db:
+    driver: local

@@ -1,4 +1,4 @@
-class CreateCarts < ActiveRecord::Migration[5.2]
+class CreateCarts < ActiveRecord::Migration[7.0]
   def change
     create_table :carts do |t|
 

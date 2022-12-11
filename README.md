@@ -1,29 +1,38 @@
 # BUY Stuff README
 
+This uses a Docker image with MySQL with docker-compose.yml & migrates a previous Rails project that used Ruby 2.6.1, Rails 5.2.4.3 and PostgreSQL, to these versions and their dependencies:
+
+- Docker 3.9
+- Rails 7.0
+- Ruby 3.1.2
+- MySQL
+- Puma 5.6
+
 This Rails project:
 
 - has scaffolding, standard CRUD actions and shopping cart (without purchasing part)
 - includes: products, orders, line items, users, store, log in, log out, forms, sessions, admin, unit tests, integration tests, order notifications, etc.
-- has a deployed version at: <https://rails-buy-stuff.herokuapp.com/>
 
-Versions used:
+## To run the application:
 
-- Rails 5.2.4.3
-- Ruby 2.6.1 or higher
-- SQLite - whatever version is bundled with Rails
+1. Run: `git clone git@github.com:kimlew/rails_buy_stuff.git`
 
-## To run the app:
+2. Change to project directory with: `cd rails_buy_stuff`
+   
+3. Create an .env file with environment variables like these. Assign values to the MySQL root user and the MySQL user along with passwords, which should should not be shown to any one:
 
-1. Make sure you install the versions above to run the project properly. See:
+  ```
+    MYSQL_ROOT_USER=root
+    MYSQL_ROOT_PASSWORD=therootuserpassword
+    MYSQL_USER=yourmysqluser
+    MYSQL_PASSWORD=yourmysqluserpassword
+    MYSQL_DATABASE=rails_buy_stuff_development
+    PORT_ASSIGNED_ON_HOST_FOR_DB=48018
+    PORT_ASSIGNED_ON_HOST_FOR_WEB_APP=48019
+    PORT_RAILS_WEB_SERVER_DEFAULT=3000
+    PORT_MYSQL_SERVER_DEFAULT=3306
+  ```
 
-  - <https://www.ruby-lang.org/en/downloads/>
+4. Run: `docker compose up --build`
 
-  - <https://www.ruby-lang.org/en/documentation/installation/>
-
-  - <https://rubygems.org/gems/rails/versions/5.2.4.3>
-
-2. Clone the files and folders in this repo.
-
-3. In the Terminal, start the rails server with the command: `rails server`
-
-4. Go to browser address: <http://localhost:3000/>
+5. Go to browser address: <http://localhost:48019/>
