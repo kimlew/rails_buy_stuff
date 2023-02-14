@@ -13,13 +13,13 @@ This Rails project:
 - has scaffolding, standard CRUD actions and shopping cart (without purchasing part)
 - includes: products, orders, line items, users, store, log in, log out, forms, sessions, admin, unit tests, integration tests, order notifications, etc.
 
-## To run the application:
+## To run the web app in a Docker container locally:
 
 1. Run: `git clone git@github.com:kimlew/rails_buy_stuff.git`
 
 2. Change to project directory with: `cd rails_buy_stuff`
    
-3. Create an .env file with environment variables like these. Assign values to the MySQL root user and the MySQL user along with passwords, which should should not be shown to any one:
+3. Create an `.env` file with environment variables similar to the example below. Assign values to the MySQL root user and the MySQL user along with **passwords**, which **should NOT be shown to anyone**.
 
   ```
     MYSQL_ROOT_USER=root
