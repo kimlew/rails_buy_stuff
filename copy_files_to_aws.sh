@@ -26,4 +26,4 @@ DEST_ON_AWS='/home/ubuntu/' # Path to root directory on deployment machine/AWS.
 
 # Copy setup_machine.sh & docker-compose.yml to root directory on AWS EC2 instance.
 scp -i "${PEM_KEY}" "${SRC_DIR_LOCAL}"setup_machine.sh ubuntu@"${IP_ADDR}":"${DEST_ON_AWS}"setup_machine.sh
-scp -i "${PEM_KEY}" "${SRC_DIR_LOCAL}"docker-compose.yml ubuntu@"${IP_ADDR}":"${DEST_ON_AWS}"docker-compose.yml
+scp -i "${PEM_KEY}" "${SRC_DIR_LOCAL}"compose.yaml ubuntu@"${IP_ADDR}":"${DEST_ON_AWS}"compose.yaml
