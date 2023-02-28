@@ -34,7 +34,7 @@ services:
       #- ./sqlserver:/docker-entrypoint-initdb.d
 
   buy_stuff:
-    image: "kimlewcan/rails-buy-stuff:1.0.0"
+    image: "kimlewcan/rails-buy-stuff:1.0.1_ec2-env"
     depends_on:
       - db
     restart: always

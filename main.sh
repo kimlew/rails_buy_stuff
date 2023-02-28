@@ -13,6 +13,8 @@
 # set -x  Prints commands and their arguments as they are executed.
 set -e
 
+SRC_DIR='/Users/kimlew/code/ruby3_rails7_mysql_buy_stuff/rails_buy_stuff'
+
 # Prompt user for PEM_KEY and IP_ADDR. Then read in the variables.
 read -resp "Type the full path to the .pem key: " PEM_KEY
 echo
@@ -59,6 +61,22 @@ ssh -i "${PEM_KEY}" ubuntu@"${IP_ADDR}" -- /bin/sh <<'EOF'
   fi
 EOF
 echo
+
+echo "Generating passwords & copying environment variables file to AWS EC2 instance..."
+# Exploit substitutions in HERE document to generate the passwords in the right place.
+# Eliminates the need to ssh to the instance & manually edit the .env file on AWS. 
+cat > ec2-env <<EOF
+MYSQL_ROOT_USER=root
+MYSQL_ROOT_PASSWORD=$(openssl rand -base64 12)
+MYSQL_USER=yourmysqluser
+MYSQL_PASSWORD=$(openssl rand -base64 12)
+MYSQL_DATABASE=rails_buy_stuff_development
+PORT_ASSIGNED_ON_HOST_FOR_DB=48018
+PORT_ASSIGNED_ON_HOST_FOR_WEB_APP=48019
+PORT_RAILS_WEB_SERVER_DEFAULT=3000
+PORT_MYSQL_SERVER_DEFAULT=3306
+EOF
+scp -i "${PEM_KEY}" "${SRC_DIR}"/ec2-env ubuntu@"${IP_ADDR}":.env
 
 # Run web app. Group nohup command with { } so ONLY that 1 command runs in background.
 echo "Running Docker Compose command to start app..."
