@@ -22,8 +22,12 @@ RUN echo "INSTALLING rails 7 & bundler 2.3.22..."
 RUN echo "gem: --no-document" > ~/.gemrc
 RUN gem install rails -v 7 && gem install bundler -v 2.3.22
 
+# Copy Gemfile & Gemfile.lock first & then run bundle install - so all the gems 
+# end up in a separate image layer that won't change very often.
 RUN echo "COPYING all files, includ. Gemfile, Gemfile.lock & launch_app.sh into Docker container from root of AWS EC2 instance."
-COPY . .
+COPY Gemfile Gemfile.lock ./
+RUN bundle check || bundle install
+COPY . ./
 RUN echo
 RUN ls -lah
 RUN echo
