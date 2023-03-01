@@ -13,8 +13,6 @@
 # set -x  Prints commands and their arguments as they are executed.
 set -e
 
-SRC_DIR='/Users/kimlew/code/ruby3_rails7_mysql_buy_stuff/rails_buy_stuff'
-
 # Prompt user for PEM_KEY and IP_ADDR. Then read in the variables.
 read -resp "Type the full path to the .pem key: " PEM_KEY
 echo
@@ -76,7 +74,8 @@ PORT_ASSIGNED_ON_HOST_FOR_WEB_APP=48019
 PORT_RAILS_WEB_SERVER_DEFAULT=3000
 PORT_MYSQL_SERVER_DEFAULT=3306
 EOF
-scp -i "${PEM_KEY}" "${SRC_DIR}"/ec2-env ubuntu@"${IP_ADDR}":.env
+
+scp -i "${PEM_KEY}" ec2-env ubuntu@"${IP_ADDR}":.env
 
 # Run web app. Group nohup command with { } so ONLY that 1 command runs in background.
 echo "Running Docker Compose command to start app..."
