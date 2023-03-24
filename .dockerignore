@@ -1,0 +1,8 @@
+db/*.sql
+.git
+.gitignore
+copy_files_to_aws.sh
+setup_machine.sh
+Dockerfile
+README.md
+output.txt
