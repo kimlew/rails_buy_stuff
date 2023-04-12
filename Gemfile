@@ -17,7 +17,7 @@ gem 'puma', '~> 5.6', '>= 5.6.5'
 
 gem 'actionpack', '~>7.0'
 
-gem "nokogiri", "~> 1.13"
+gem "nokogiri", "~> 1.14"
 # General library for manipulating & transforming HTML/XML documents &
 # fragments, built on top of Nokogiri.
 gem "loofah", ">= 2.3.1"
